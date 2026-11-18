@@ -50,7 +50,7 @@ Read the transcript. A speaker ID is not a name. When it matters who promised wh
 
 ## Step 3: Write the draft
 
-Unless told otherwise, write in the language used in the meeting (Japanese when unclear). If the user asks for English, write in English. Output:
+Unless told otherwise, write in the language used in the meeting, because the email goes to the counterpart. When that is unclear, use the language the user writes in. If the user asks for another language, use it. Output:
 
 ```text
 件名: <短く具体的に。打ち合わせの話題を入れる>

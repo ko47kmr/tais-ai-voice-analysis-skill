@@ -69,7 +69,7 @@ If the user has not specified one, ask just one question, for example: 「どの
 
    - Put every speaker ID that appears in the segments into `speakers`. Always write `side` for a speaker without `merge_into`. `side` is one of `self` (the user's company), `customer`, or `other`. `merge_into` merges one speaker ID into another (the same person).
    - The script stops with an error on mistakes (a bad `unit` value, duplicate IDs, a missing `side`, a speaker not in the list). If an error appears, fix the input file as the message says and run again.
-   - `lang` is `ja` by default. Use `en` when the user asks for English or writes the request in English.
+   - The page supports only `ja` and `en`. Use `ja` when the user writes in Japanese and `en` for any other language, unless the user asks for one of the two.
    - Write `recorded_at` in the user's time zone (default `Asia/Tokyo`; if the user names another time zone, use it).
    - Add `"note"` only when the numbers cover just part of the call (when the segments were truncated) and in the Treasure Work case above. Example: `"全体62分のうち最初の40分が対象です。"` Do not write it in any other case.
 2. Find the script with the Glob tool (pattern: `**/ai-voice-talk-analysis/scripts/talk_analysis.py`). Then run `python3 <found-path> <temp folder>/talk-input.json talk-analysis-<today's date>-<title>.html`. It writes the page and prints a JSON summary of the numbers.
@@ -77,7 +77,7 @@ If the user has not specified one, ask just one question, for example: 「どの
 
 ## Step 4: Reply
 
-Tell the user where the file is, and write at most 3 lines from the printed summary. Use the same language as the page, use only the following form (in English: `Talk share: ours 43% / customer 57%`, `Silences (3s+): 6 / Overlaps: 6 / Back-and-forth: 86`), and write nothing else:
+Tell the user where the file is, and write at most 3 lines from the printed summary. Write it in the user's language (if the page is in English and the user writes in another language, keep the page's terms in parentheses), use only the following form (in English: `Talk share: ours 43% / customer 57%`, `Silences (3s+): 6 / Overlaps: 6 / Back-and-forth: 86`), and write nothing else:
 
 ```
 <ファイル名またはパス>

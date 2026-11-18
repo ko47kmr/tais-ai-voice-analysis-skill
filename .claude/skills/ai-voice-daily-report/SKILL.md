@@ -1,6 +1,6 @@
 ---
 name: ai-voice-daily-report
-description: "Write a daily or weekly activity report from the user's own Treasure AI Voice recordings: what was done, with whom, outcomes, issues, and next actions. Reads recordings via the AI Voice connector; fills in the user's own template if provided. Use when asked to write a daily report, weekly report, or activity summary from recordings (e.g. \"write my daily report from today's recordings\", \"weekly report from my AI Voice recordings\", \"summarize what I did this week\"). Also triggers for Japanese requests such as「今日の録音から日報を書いて」「今週の週報をまとめて」."
+description: "Write a daily or weekly activity report from the user's own Treasure AI Voice recordings: what was done, with whom, outcomes, issues, and next actions. Reads recordings via the AI Voice connector; fills in the user's own template if provided. Use when asked to write a daily report, weekly report, or activity summary from recordings (e.g. \"write my daily report from today's recordings\", \"weekly report from my AI Voice recordings\", \"summarize what I did this week\"). Also use for the user's own activity report to a manager, such as 「上長に報告できるように今週の活動をまとめて」. For a customer, deal, or project status, use ai-voice-analysis instead. Also triggers for Japanese requests such as「今日の録音から日報を書いて」「今週の週報をまとめて」."
 ---
 
 # AI Voice Daily Report
@@ -39,7 +39,7 @@ Default: today means a daily report; 「今週」 (this week) means a weekly rep
 
 ## Step 3: Write the report
 
-Write in Japanese by default. If the user asks for English (or writes the request in English), write the report in English and translate the headings (for example 本日の活動 → Today's activities, ハイライト → Highlights, 懸念・課題 → Concerns and issues, 次のアクション → Next actions, 上長への申し送り → Notes for my manager, 含まれない録音 → Recordings not included). The Markdown below is the reference for the sections and their order. Daily report:
+Write in the language the user writes in. If the user asks for another language, use that language instead. When it is not Japanese, translate the headings (for example, in English: 本日の活動 → Today's activities, ハイライト → Highlights, 懸念・課題 → Concerns and issues, 次のアクション → Next actions, 上長への申し送り → Notes for my manager, 含まれない録音 → Recordings not included). The Markdown below is the reference for the sections and their order. Daily report:
 
 ```markdown
 # 日報 2026年11月9日（月）
@@ -70,7 +70,7 @@ Weekly report: Replace 「本日の活動」 with short per-day sections (2 to 3
 
 Save the daily or weekly report as one HTML file (for example: `日報-2026-11-09.html`) and tell the user where it is. If the user says 「Markdown」 or 「md」, write in the Markdown above. If the user has their own daily report template, follow the format of that template.
 
-Copy `references/daily-report-template.html`, fill in every `{{placeholder}}`, and delete the parts you do not need. For English, also translate the fixed labels in the template and set `<html lang="en">`. Use the CSS and the purple color scheme as they are. Do not reuse the colors or layout of other reports in the same folder or of earlier conversations. The sections and their order are the same as in the Markdown above, with these additions:
+Copy `references/daily-report-template.html`, fill in every `{{placeholder}}`, and delete the parts you do not need. When the output is not Japanese, also translate the fixed labels in the template and set `<html lang>` to that language (for example `en`). Use the CSS and the purple color scheme as they are. Do not reuse the colors or layout of other reports in the same folder or of earlier conversations. The sections and their order are the same as in the Markdown above, with these additions:
 - **Lead**: one sentence with the conclusion for the day (week): the biggest result and the most urgent item.
 - **Badges**: the number of activities and the number of next actions.
 - **上長への申し送り (notes for the manager)**: if there are none, delete the whole section.

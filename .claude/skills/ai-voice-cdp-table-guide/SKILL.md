@@ -17,7 +17,7 @@ Column definitions are in `references/schema.md`. Queries for common uses are in
 - The only thing to treat as export data is the CDP tables. Do not present files in the working folder or output from earlier conversations as examples of export data.
 - When you need to ask for permission to run commands, explain it in one plain sentence (for example: 「`aiv_export` の録音一覧を直近30日分、読みます(読み取りのみ)」), and ask for permission for read queries once as a batch, not once per query.
 - Show the SQL only when the user asks for it. The default is a result table.
-- Answer in Japanese by default, and in English when the user asks for English or writes in English.
+- Answer in the language the user writes in. If the user asks for another language, use that language instead.
 - **Time zone**: `{tz}` in the queries defaults to `Asia/Tokyo`. If the user names another time zone, use its IANA name (for example `UTC`, `America/Los_Angeles`) everywhere `{tz}` appears, and keep using it for the rest of the conversation.
 
 ## Whose recordings to read

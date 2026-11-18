@@ -42,7 +42,7 @@ List recent recordings and filter by date or title yourself (the list has no dat
 
 ## Step 3: Write the minutes
 
-Write in Japanese by default. If the user asks for English (or writes the request in English), write the minutes in English and translate the headings and fixed labels (for example 要旨 → Summary, 決定事項 → Decisions, 宿題 → Action items, 未決事項 → Open issues, 議論の内容 → Discussion, 要確認 → To confirm, 未記載 → Not stated). In Japanese, add 「さん」 to internal people and 「様」 to customers (follow the user's instruction if given), and write dates in the form 2026年11月9日（月）. In English, write dates in the form Mon, Nov 9, 2026.
+Write in the language the user writes in. If the user asks for another language, use that language instead. When it is not Japanese, translate the headings and fixed labels (for example, in English: 要旨 → Summary, 決定事項 → Decisions, 宿題 → Action items, 未決事項 → Open issues, 議論の内容 → Discussion, 要確認 → To confirm, 未記載 → Not stated). In Japanese, add 「さん」 to internal people and 「様」 to customers (follow the user's instruction if given), and write dates in the form 2026年11月9日（月）. In other languages, write dates in that language's usual form (in English: Mon, Nov 9, 2026).
 
 ```markdown
 # <会議のタイトル> 議事録
@@ -85,7 +85,7 @@ Rules:
 
 Save the minutes as one HTML file (for example: `議事録-2026-11-09-定例.html`) and tell the user where it is. If the user says 「Markdown」 or 「md」, write in the Markdown above.
 
-Copy `references/minutes-template.html` and fill in every `{{placeholder}}`. For English, also translate the fixed labels in the template and set `<html lang="en">`. Use the CSS and the purple color scheme as they are. Do not reuse the colors or layout of other reports in the same folder or of earlier conversations. The sections and their order are the same as in the Markdown above, with these additions:
+Copy `references/minutes-template.html` and fill in every `{{placeholder}}`. When the output is not Japanese, also translate the fixed labels in the template and set `<html lang>` to that language (for example `en`). Use the CSS and the purple color scheme as they are. Do not reuse the colors or layout of other reports in the same folder or of earlier conversations. The sections and their order are the same as in the Markdown above, with these additions:
 - **Lead**: one sentence on what was decided in the meeting.
 - **Badges**: the date and time, and the number of 「要確認」 (needs confirmation) items.
 - **Footer**: one line only. The source recording (title, date, length). Do not write disclaimers.
